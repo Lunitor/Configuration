@@ -4,7 +4,7 @@ using System;
 
 namespace Lunitor.Configuration.Core
 {
-    public class ServiceConfiguratorFactory
+    public class ServiceConfiguratorFactory : IServiceConfiguratorFactory
     {
         public IServiceConfigurator GetConfigurator(Service service)
         {

@@ -17,9 +17,11 @@ namespace Lunitor.Configuration.Infrastructure
             var task = TaskService.Instance.GetTask(service.Name);
             task.Enabled = false;
         }
+
         public ServiceStatus GetStatus(Service service)
         {
-            var task = TaskService.Instance.GetTask(service.Name);
+            var taskName = service.Name.Replace("/", "\\");
+            var task = TaskService.Instance.GetTask(taskName);
 
             return task.Enabled ? ServiceStatus.Running : ServiceStatus.Stopped;
         }
